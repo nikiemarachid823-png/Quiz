@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="App.css">
+    <title>APPLICATION DE CULTURE GENERALE</title>
+</head>
+<body>
+    <h1>Bienvenu dans l'application de culture générale</h1>
+    <div id="Conteneur">
+    <h3 id="Question" > </h3>
+
+    <div id="Champ">
+    <P id="Champ1"></P> 
+    <P id="Champ2"></P> 
+    <P id="Champ3"></P>
+    </div>
+    
+ <br>
+<span><input type="button" name="Suivant" value="Suivant" id="Suite"></span>
+<div id="Affiche"></div><br> <br><br>
+<span>Score:<input type="text" name="" id="Score" ></span>
+   </div>
+    <script>
+        let Question=document.getElementById('Question');
+        let Info=document.getElementById('Affiche');
+        let Suite=document.getElementById('Suite');
+        let Champ1=document.getElementById('Champ1');
+        let Champ2=document.getElementById('Champ2');
+        let Champ3=document.getElementById('Champ3');
+        let Conteneur=document.getElementById('Conteneur');
+        let Score=document.getElementById('Score');
+        let index=0;
+      
+
+        //les listes des Questions et des options
+        let Tableau=[
+
+            {texte:"Quelle est la capitale du Burkina Faso?",
+            option:["Lousila","Libreville","Ouagadougou"],
+            reponse:"Ouagadougou" ,     
+            },
+
+            {texte:"Quelle est la capitale du Mali ?",
+            option:["Alger","Bamako","Tunnis"],
+            reponse:"Bamako" ,     
+            },
+            {texte:"Quelle est la capitale du Niger ?",
+            option:["Niamey","Dakar","Addis Abba"],
+            reponse:"Niamey" ,     
+            },
+            {texte:"Quelle est la capitale de la Côté d' ivoire ?",
+            option:["Abidjan","Kinchassa","Brazavile"],
+            reponse:"Abidjan" ,     
+            },
+            {texte:"Quelle est la capitale du Ghana ?",
+            option:["kigalie","Accra","Antanarivo"],
+            reponse:"Accra" ,     
+            },
+            {texte:"Quelle est la capitale du  Togo?",
+            option:["Abudja","Bamako","Lomé"],
+            reponse:"Lomé" ,     
+            },
+            {texte:"Quelle est la capitale du Bénin ?",
+            option:["Bobo Dioulasso","Naerobi","Cotonou"],
+            reponse:"Cotonou" ,     
+            }
+
+        ] 
+
+       
+
+        //affichage des questions
+        function affichagesQuestion(Tex){
+
+Question.innerHTML=Tableau[Tex].texte;
+Champ1.innerHTML=`<input type="radio" id="${Tableau[Tex].option[0]}" class="cauche1" value="${Tableau[Tex].option[0]}" >
+      <label for="">${Tableau[Tex].option[0]} </label><br>`; 
+Champ2.innerHTML=`<input type="radio" id="${Tableau[Tex].option[1]}" class="cauche2" value="${Tableau[Tex].option[1]}" >
+      <label for="">${Tableau[Tex].option[1]} </label><br>`; 
+Champ3.innerHTML=`<input type="radio" id="${Tableau[Tex].option[2]}" class="cauche3" value="${Tableau[Tex].option[2]}" >
+      <label for="">${Tableau[Tex].option[2]} </label><br>`; 
+/*for(i=0;i<3;i++){
+ Champ.innerHTML+=`<input type="radio" id="${Tableau[Tex].option[i]}" class="cauche" value="${Tableau[Tex].option[i]}" >
+  <label for="">${Tableau[Tex].option[i]} </label><br>`;    
+}*/
+    
+    }
+     
+   
+
+    
+
+        affichagesQuestion(index)
+       Verification();
+    //Alterne les Questions
+  
+    Suite.addEventListener('click',function Change(){
+    Info.innerHTML="";
+    Champ1.innerHTML="";
+    Champ2.innerHTML="";
+    Champ3.innerHTML="";
+      index++;
+    
+      if(index<Tableau.length ){ affichagesQuestion(index);}
+      else{Champ.innerText='A bientôt Quiz terminer 💐🎈🎉'}
+     
+     Verification();
+    })
+
+
+        //Vérification
+       
+        function Verification(){ 
+                  
+  let Choix1 = document.querySelector('.cauche1');
+  let Choix2 = document.querySelector('.cauche2');
+  let Choix3 = document.querySelector('.cauche3');
+
+Choix1.addEventListener('change',function(){
+ if(Tableau[index].reponse===Choix1.value)
+ { Info.innerHTML="Bien joué ✅👍😂";Score.value++;} 
+ else{Info.innerHTML="Mauvaise réponse ❌😒👌";} 
+Choix2.disabled=true;
+Choix3.disabled=true;
+});
+Choix2.addEventListener('change',function(){
+ if(Tableau[index].reponse===Choix2.value)
+ { Info.innerHTML="Bien joué ✅👍😂";Score.value++;} 
+ else{Info.innerHTML="Mauvaise réponse ❌😒👌";} 
+Choix1.disabled=true;
+Choix3.disabled=true;
+});
+Choix3.addEventListener('change',function(){
+ if(Tableau[index].reponse===Choix3.value)
+ { Info.innerHTML="Bien joué ✅👍😂";Score.value++;} 
+ else{Info.innerHTML="Mauvaise réponse ❌😒👌";} 
+Choix1.disabled=true;
+Choix2.disabled=true;
+});
+
+
+
+
+  /*
+for(let j=0;j<Choix.length;j++){
+ Choix[j].addEventListener('change',function(){
+ if(Tableau[index].reponse===Choix[j].value)
+ { Info.innerHTML="Bien joué ✅👍😂";Score.value++;} 
+ else{Info.innerHTML="Mauvaise réponse ❌😒👌";} 
+})
+Choix[j].disabled=true;}
+*/
+}  
+
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+h1{   
+    display: flex;
+     justify-content: center;
+    align-items: center;
+    background:linear-gradient(red,yellow) ;
+    text-shadow: 1px 2px 2px ;
+    flex-wrap: wrap;
+   
+}
+#Conteneur{
+justify-content: center;
+}
+h3{
+   display: flex;
+     justify-content: center;
+    align-items: center;
+   border-radius: 10px;
+   box-shadow: 3px 4px 5px ;
+  margin-right: 10%;
+  margin-left: 10%;
+
+}
+
+#Champ{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Champ p{
+display: flex;
+    border-radius:10px ;
+    box-shadow: 2px 4px 5px ;
+    width: 55%;
+    
+}
+#Champ p:hover{
+    background-color: lemonchiffon;
+}
+#Suite{
+  justify-content: center;
+    background-color:blue;
+    color: white;
+    width: 40%;
+}
+#Suite:hover{
+    background-color: green;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius:10px ;
+}
+#Score{
+}
+span{
+    
+    display: flex;
+     justify-content: center;
+    align-items: center;
+}
+#Score{
+   border:none;
+}
+#Affiche{
+    display: flex;
+     justify-content: center;
+    align-items: center;
+}
